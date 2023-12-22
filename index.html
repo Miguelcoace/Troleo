@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Troleo</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Para evitar barras de desplazamiento */
+            color: white; /* Color de texto predeterminado */
+        }
+
+        .audio-container {
+            text-align: center;
+            color: white; /* Añade color para que el texto sea legible sobre el GIF */
+        }
+
+        /* Estilo para ocultar el fondo por defecto */
+        .gif-background {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Estilo para ocultar el texto por defecto */
+        #texto {
+            display: none;
+            font-size: 36px; /* Tamaño de fuente más grande */
+            color: red; /* Color rojo */
+            margin-top: 20px;
+        }
+
+        /* Cambiar color del texto en h1 a negro */
+        h1 {
+            color: black;
+        }
+
+        /* Ocultar el botón de reproducción después de presionarlo */
+        #miAudio::-webkit-media-controls-start-playback-button {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="audio-container">
+    <h1 id="titulo">Dale al play para obtener la primera pista de la yincana</h1>
+
+    <audio id="miAudio" controls onplay="mostrarElementos()">
+        <source src="NGGYU.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <img src="4KI.gif" id="gif" class="gif-background">
+    <p id="texto">El QR bueno esta detras, estupido</p>
+</div>
+
+<script>
+    function mostrarElementos() {
+        var titulo = document.getElementById('titulo');
+        titulo.style.display = 'none'; // Ocultar el elemento h1 cuando se presiona el botón de play
+
+        var gif = document.getElementById('gif');
+        gif.style.display = 'block'; // Mostrar el GIF cuando se presiona el botón de play
+
+        var texto = document.getElementById('texto');
+        texto.style.display = 'block'; // Mostrar el texto cuando se presiona el botón de play
+
+        var botonPlay = document.getElementById('miAudio');
+        botonPlay.controls = false; // Ocultar el botón de reproducción
+    }
+</script>
+
+</body>
+</html>
