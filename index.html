@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Troleo</title>
+    <title>Reproductor de Audio con Fondo de GIF</title>
     <style>
         body {
             display: flex;
@@ -32,7 +32,7 @@
         /* Estilo para ocultar el texto por defecto */
         #texto {
             display: none;
-            font-size: 56px; /* Tamaño de fuente más grande */
+            font-size: 36px; /* Tamaño de fuente más grande */
             color: red; /* Color rojo */
             margin-top: 20px;
         }
@@ -40,6 +40,12 @@
         /* Cambiar color del texto en h1 a negro */
         h1 {
             color: black;
+        }
+
+        /* Estilo para aumentar el tamaño del botón de reproducción */
+        #miAudio {
+            width: 200px; /* Ancho del cuadro de control */
+            height: 60px; /* Altura del cuadro de control */
         }
 
         /* Ocultar el botón de reproducción después de presionarlo */
@@ -51,7 +57,7 @@
 <body>
 
 <div class="audio-container">
-    <h1 id="titulo">Dale al play para obtener la primera pista de la yincana</h1>
+    <h1 id="titulo">Reproductor de Audio HTML</h1>
 
     <audio id="miAudio" controls onplay="mostrarElementos()">
         <source src="NGGYU.mp3" type="audio/mp3">
@@ -59,7 +65,7 @@
     </audio>
 
     <img src="4KI.gif" id="gif" class="gif-background">
-    <p id="texto">Ticket para la Warner el Martes</p>
+    <p id="texto">El QR bueno está detrás, estúpido</p>
 </div>
 
 <script>
