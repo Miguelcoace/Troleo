@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Yincana</title>
+    <title>ResidentEvil</title>
     <style>
         body {
             display: flex;
@@ -19,13 +19,13 @@
 
         .audio-container {
             text-align: center;
-            color: white; /* Añade color para que el texto sea legible sobre la imagen */
+            color: rgb(4, 252, 128); /* Añade color para que el texto sea legible sobre la imagen */
         }
 
         /* Estilo para ocultar el texto por defecto */
         #texto {
             display: none;
-            font-size: 36px; /* Tamaño de fuente más grande */
+            font-size: 80px; /* Tamaño de fuente más grande */
             color: red; /* Color rojo */
             margin-top: 20px;
         }
@@ -33,6 +33,17 @@
         /* Cambiar color del texto en h1 a negro */
         h1 {
             color: rgb(0, 255, 128);
+            font-size: 50px;
+        }
+
+        /* Estilos para el botón personalizado */
+        .custom-button {
+            padding: 10px 20px;
+            background-color: #00ff62;
+            color: rgb(0, 0, 0);
+            border: none;
+            cursor: pointer;
+            font-size: 30px;
         }
     </style>
 </head>
@@ -41,28 +52,31 @@
 <div class="audio-container">
     <h1 id="titulo">Dale al play para ver la primera pista de la yincana</h1>
 
-    <audio id="miAudio" controls onplay="mostrarElementos()">
-        <source src="NGGYU.mp3" type="audio/mp3">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
+    <!-- Botón personalizado para reproducir el audio -->
+    <button class="custom-button" onclick="reproducirAudio()">Yincana</button>
 
     <p id="texto">El QR bueno está detrás, estúpido</p>
 </div>
 
 <script>
-    function mostrarElementos() {
+    function reproducirAudio() {
+        var audio = new Audio('NGGYU.mp3'); // Crear un elemento de audio
+        audio.play(); // Reproducir el audio
+
         var fondo = document.querySelector('body');
-        fondo.style.backgroundImage = "url('4KI.gif')"; // Cambiar el fondo por el GIF cuando se presiona el botón de play
+        fondo.style.backgroundImage = "url('4KI.gif')"; // Cambiar el fondo por el GIF cuando se reproduce el audio
 
         var titulo = document.getElementById('titulo');
-        titulo.style.display = 'none'; // Ocultar el elemento h1 cuando se presiona el botón de play
+        titulo.style.display = 'none'; // Ocultar el elemento h1 cuando se reproduce el audio
 
         var texto = document.getElementById('texto');
-        texto.style.display = 'block'; // Mostrar el texto cuando se presiona el botón de play
+        texto.style.display = 'block'; // Mostrar el texto cuando se reproduce el audio
 
-        var botonPlay = document.getElementById('miAudio');
-        botonPlay.controls = false; // Ocultar el botón de reproducción
+        // Ocultar el botón después de hacer clic
+        var boton = document.querySelector('.custom-button');
+        boton.style.display = 'none';
     }
+
 </script>
 
 </body>
