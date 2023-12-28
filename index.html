@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Reproductor de Audio con Fondo de GIF</title>
+    <title>Yincana</title>
     <style>
         body {
             display: flex;
@@ -11,22 +11,15 @@
             margin: 0;
             overflow: hidden; /* Para evitar barras de desplazamiento */
             color: white; /* Color de texto predeterminado */
+            background-image: url('enigma.jpg'); /* Imagen de fondo inicial */
+            background-size: cover; /* Ajusta el tamaño del fondo para cubrir todo el cuerpo */
+            background-position: center; /* Posición del fondo centrada */
+            transition: background-image 0.5s; /* Transición suave al cambiar la imagen de fondo */
         }
 
         .audio-container {
             text-align: center;
-            color: white; /* Añade color para que el texto sea legible sobre el GIF */
-        }
-
-        /* Estilo para ocultar el fondo por defecto */
-        .gif-background {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            color: white; /* Añade color para que el texto sea legible sobre la imagen */
         }
 
         /* Estilo para ocultar el texto por defecto */
@@ -39,42 +32,30 @@
 
         /* Cambiar color del texto en h1 a negro */
         h1 {
-            color: black;
-        }
-
-        /* Estilo para aumentar el tamaño del botón de reproducción */
-        #miAudio {
-            width: 200px; /* Ancho del cuadro de control */
-            height: 60px; /* Altura del cuadro de control */
-        }
-
-        /* Ocultar el botón de reproducción después de presionarlo */
-        #miAudio::-webkit-media-controls-start-playback-button {
-            display: none;
+            color: rgb(0, 255, 128);
         }
     </style>
 </head>
 <body>
 
 <div class="audio-container">
-    <h1 id="titulo">Reproductor de Audio HTML</h1>
+    <h1 id="titulo">Dale al play para ver la primera pista de la yincana</h1>
 
     <audio id="miAudio" controls onplay="mostrarElementos()">
         <source src="NGGYU.mp3" type="audio/mp3">
         Tu navegador no soporta el elemento de audio.
     </audio>
 
-    <img src="4KI.gif" id="gif" class="gif-background">
     <p id="texto">El QR bueno está detrás, estúpido</p>
 </div>
 
 <script>
     function mostrarElementos() {
+        var fondo = document.querySelector('body');
+        fondo.style.backgroundImage = "url('4KI.gif')"; // Cambiar el fondo por el GIF cuando se presiona el botón de play
+
         var titulo = document.getElementById('titulo');
         titulo.style.display = 'none'; // Ocultar el elemento h1 cuando se presiona el botón de play
-
-        var gif = document.getElementById('gif');
-        gif.style.display = 'block'; // Mostrar el GIF cuando se presiona el botón de play
 
         var texto = document.getElementById('texto');
         texto.style.display = 'block'; // Mostrar el texto cuando se presiona el botón de play
